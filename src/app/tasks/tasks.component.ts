@@ -1,15 +1,13 @@
 import { Component, Input } from "@angular/core";
-import { TaskComponent } from "./task/task";
-import { DUMMY_TASKS } from '../dummy-tasks';
-import { NewTaskComponent } from "./new-task/new-task";
-import { NewTaskData } from "./task/task.model";
+
 import { TasksService } from "./tasks.service";
+
 
 @Component({
     selector:'app-tasks',
-    styleUrl: './tasks.css',
-    imports: [TaskComponent, NewTaskComponent],
-    templateUrl: './tasks.html'
+    standalone: false,
+    styleUrl: './tasks.component.css',
+    templateUrl: './tasks.component.html'
 })
 export class TasksComponent {
     @Input({ required: true }) name!: string;    
