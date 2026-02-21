@@ -12,7 +12,7 @@
         </menu>
     </header>
     <ul>
-        @for (task of selectedUserTasks; track $index) {
+        @for (task of selectedUserTasks(); track $index) {
             <li>
                 
                 <app-task [task]="task" />

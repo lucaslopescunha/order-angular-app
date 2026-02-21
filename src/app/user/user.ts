@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input,  Output } from "@angular/core";
+import { Component, EventEmitter, Input,  output,  Output, signal } from "@angular/core";
 import { User } from "./user.model";
 import { CardComponent } from "../shared/card/card";
 
@@ -13,7 +13,7 @@ export class UserComponent {
 
     @Input({ required: true }) user!: User;
     @Input({ required: true }) selected!: boolean;
-    @Output() select = new EventEmitter<string>();
+    select = output<string>();
 
     get imagePath() {
         return 'assets/users/' + this.user.avatar;

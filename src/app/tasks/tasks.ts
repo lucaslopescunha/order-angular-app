@@ -1,9 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, signal } from "@angular/core";
 import { TaskComponent } from "./task/task";
-import { DUMMY_TASKS } from '../dummy-tasks';
 import { NewTaskComponent } from "./new-task/new-task";
-import { NewTaskData } from "./task/task.model";
 import { TasksService } from "./tasks.service";
+import { Task } from "./task/task.model";
 
 @Component({
     selector:'app-tasks',
@@ -19,10 +18,8 @@ export class TasksComponent {
 
     constructor(private tasksService: TasksService) { }
 
+    selectedUserTasks = () => this.tasksService.getUserTasks(this.userId);
 
-    get selectedUserTasks() {
-        return this.tasksService.getUserTasks(this.userId);
-    }
 
     onStartAddTask() {
         this.isAddingTask = true;
